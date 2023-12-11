@@ -1,0 +1,48 @@
+body {
+    background-color: #2A4155; /* Optional: Set the background color */
+}
+
+.navbar{
+    background-color: #10263B;
+    border: #10263B;
+    padding: 8px;
+}
+
+.navbutton {
+    background-color: #F66E2E;
+    border: #000000;
+    padding: 16px;
+    border-width: 8px;
+}
+
+.logo img {
+    max-height: 70px; /* Aanpassen aan de gewenste hoogte van het logo */
+}
+
+.video-box {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 16px;
+}
+
+.video-box-2 {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 1720px;
+    background-color: #000000;
+    border-radius: 32px;
+}
+
+.video-title {
+    display: flex;
+    justify-content: center;
+    color: #F66E2E;
+}
+
+.video {
+    max-width: 1280px; 
+    max-height: 960px;
+}

@@ -1,0 +1,20 @@
+CREATE TABLE login(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE video(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    tmp_name VARCHAR(255) NOT NULL,
+    size INT NOT NULL
+);
+
+CREATE TABLE videos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    size INT NOT NULL
+);
