@@ -19,6 +19,12 @@ body {
     max-height: 70px; /* Aanpassen aan de gewenste hoogte van het logo */
 }
 
+.all-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+
 .video-box {
     display: flex;
     flex-wrap: nowrap;
@@ -36,6 +42,23 @@ body {
     border-radius: 32px;
 }
 
+.video-box-3 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 8px;
+}
+
+.video-box-4 {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 620px;
+    background-color: #000000;
+    border-radius: 32px;
+}
+
 .video-title {
     display: flex;
     justify-content: center;
@@ -45,4 +68,21 @@ body {
 .video {
     max-width: 1280px; 
     max-height: 960px;
+}
+
+.video-2 {
+    max-width: 620px; 
+    max-height: 400px;
+}
+
+.likes-count {
+    color: #F66E2E;
+}
+
+.like-button {
+    background-color: #F66E2E;
+    border: #000000;
+    padding: 16px;
+    border-width: 8px;
+    border-radius: 8px;
 }

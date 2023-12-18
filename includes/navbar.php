@@ -12,7 +12,7 @@
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             echo '<button class="navbutton" onclick="document.location=\'video-upload.php\'">Upload</button> ';
             echo '<button class="navbutton" onclick="document.location=\'watch.php\'">Videos</button> ';
-            echo '<button class="navbutton" onclick="document.location=\'logout.php\'">Logout</button> ';
+            echo '<button class="navbutton" onclick="document.location=\'php/logout.php\'">Logout</button> ';
         } else {
             echo '<button class="navbutton" onclick="document.location=\'watch.php\'">Videos</button> ';
             echo '<button class="navbutton" onclick="document.location=\'login.php\'">Login</button>';

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO login (email, username, password) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (email, username, password) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $email, $username, $hashedPassword);
 
     if ($stmt->execute()) {
@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Balling register</title>
 </head>
 <body>
+    <!-- registration text boxes -->
     <h2>Register</h2>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label>Email:</label><br>

@@ -1,37 +1,37 @@
 <?php include 'includes/navbar.php'; ?>
 <?php include 'db/connect.php'; ?>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        // Hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("SELECT id, username, password FROM login WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+        $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            // User authenticated successfully
-            echo "Welcome, " . $row["username"];
-            // Set username in session
-            $_SESSION['username'] = $row["username"];
-            $_SESSION['logged_in'] = true;
-            header("Location: index.php");
-            exit();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                // User authenticated successfully
+                echo "Welcome, " . $row["username"];
+                // Set username in session
+                $_SESSION['username'] = $row["username"];
+                $_SESSION['logged_in'] = true;
+                header("Location: index.php");
+                exit();
+            } else {
+                echo "Invalid email or password";
+            }
         } else {
             echo "Invalid email or password";
         }
-    } else {
-        echo "Invalid email or password";
+        $stmt->close();
+        $conn->close();
     }
-    $stmt->close();
-    $conn->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Balling login</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2>
+        Login
+    </h2>
+    <!-- login text boxes -->
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label>Email:</label><br>
         <input type="text" name="email" required><br>

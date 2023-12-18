@@ -1,5 +1,5 @@
 <?php
-include 'db/connect.php';
+include '../db/connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $videoName = $_FILES['video']['name'];
