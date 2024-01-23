@@ -8,7 +8,7 @@
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, username, role, password FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -20,6 +20,8 @@
                 echo "Welcome, " . $row["username"];
                 // Set username in session
                 $_SESSION['username'] = $row["username"];
+                $_SESSION['user_id'] = $row["id"];
+                $_SESSION['role'] = $row["role"];
                 $_SESSION['logged_in'] = true;
                 header("Location: index.php");
                 exit();

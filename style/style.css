@@ -86,3 +86,19 @@ body {
     border-width: 8px;
     border-radius: 8px;
 }
+
+.report-options {
+    display: flex;
+}
+
+.report-button {
+    background-color: #F66E2E;
+    border: #000000;
+    padding: 32px;
+    border-width: 8px;
+    border-radius: 8px;
+}
+
+.padding {
+    padding: 8px;
+}
